@@ -23,7 +23,8 @@ public interface AdminService {
     public String login(
             @NotNull @HttpParam(name = "username", type = HttpParamType.COMMON, description = "用户名") String username,
             @NotNull @HttpParam(name = "password", type = HttpParamType.COMMON, description = "密码") String password,
-            @NotNull @HttpParam(name = "verifyCode", type = HttpParamType.COMMON, description = "验证码") String verifyCode) throws ServiceException;
+            @NotNull @HttpParam(name = "verifyCode", type = HttpParamType.COMMON, description = "验证码") String verifyCode,
+            @NotNull @HttpParam(name = "uuid", type = HttpParamType.COMMON, description = "key") String uuid) throws ServiceException;
 
     @HttpMethod(description = "管理员登出")
     public String logout(

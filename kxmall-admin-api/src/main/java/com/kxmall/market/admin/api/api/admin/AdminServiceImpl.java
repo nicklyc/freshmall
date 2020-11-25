@@ -24,6 +24,7 @@ import com.kxmall.market.data.mapper.AdminMapper;
 import com.kxmall.market.data.mapper.RoleMapper;
 import com.kxmall.market.data.mapper.RolePermissionMapper;
 import com.kxmall.market.data.model.Page;
+import com.kxmall.market.data.util.Constants;
 import com.kxmall.market.data.util.SessionUtil;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -83,7 +84,7 @@ public class AdminServiceImpl implements AdminService {
     private static final Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
 
     @Override
-    public String login(String username, String password,String verifyCode) throws ServiceException {
+    public String login(String username, String password, String verifyCode, String uuid) throws ServiceException {
         String accessToken = generateAccessToken();
         //数据库查管理员
         List<AdminDO> adminDOS = adminMapper.selectList(
@@ -94,10 +95,13 @@ public class AdminServiceImpl implements AdminService {
         }
         AdminDO adminDO = adminDOS.get(0);
         //短信验证码
-//        String code = cacheComponent.getRaw(ADMIN_MSG_CODE+adminDO.getPhone() );
-//        if(!"guest".equals(username) && (code == null || verifyCode==null || !code.equals(verifyCode))){
-//            throw new AdminServiceException(ExceptionDefinition.ADMIN_VERIFYCODE_ERROR);
-//        }
+        //String code = cacheComponent.getRaw(ADMIN_MSG_CODE + adminDO.getPhone());
+        String verifyKey = Constants.CAPTCHA_CODE_KEY + uuid;
+        String code = cacheComponent.getRaw(verifyKey);
+        cacheComponent.del(verifyKey);
+        if (!"guest".equals(username) && (code == null || !code.equalsIgnoreCase(verifyCode))) {
+            throw new AdminServiceException(ExceptionDefinition.ADMIN_VERIFYCODE_ERROR);
+        }
         if (!MD5Util.verify(password, username, adminDO.getPassword())) {
             throw new AdminServiceException(ExceptionDefinition.ADMIN_PASSWORD_ERROR);
         }
