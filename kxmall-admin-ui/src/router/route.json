@@ -1,0 +1,646 @@
+[
+	{
+		"redirect":"noredirect",
+		"path":"/mall",
+		"children":[
+			{
+				"path": "user",
+				"meta": {
+					"noCache": true,
+					"perms": [
+						"system:user:query",
+						"system:user:delete",
+						"system:user:create",
+						"system:user:update"
+					],
+					"title": "会员管理"
+				},
+				"name": "user",
+				"page": "/user/user"
+			},
+			{
+				"path":"order",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:order:list",
+						"operation:order:detail",
+						"operation:order:ship"
+					],
+					"title":"订单管理"
+				},
+				"name":"order",
+				"page":"/operation/order"
+			},
+			{
+				"path":"appraise",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:appraise:delete",
+						"operation:appraise:query"
+					],
+					"title":"评论管理"
+				},
+				"name":"appraise",
+				"page":"/operation/appraise"
+			},
+			{
+				"path":"freight",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:freight:query",
+						"operation:freight:update",
+						"operation:freight:create"
+					],
+					"title":"运费模板管理"
+				},
+				"name":"freight",
+				"page":"/operation/freight"
+			}
+		],
+		"meta":{
+			"icon":"chart",
+			"title":"运营管理"
+		},
+		"name":"mallManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+		"path":"/entrepot",
+		"children":[
+			{
+				"path":"data",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:data:list",
+						"operation:data:detail",
+						"operation:data:ship"
+					],
+					"title":"前置仓资料"
+				},
+				"name":"storeManagement",
+				"page":"/storeManagement"
+      },
+			{
+				"path":"control",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:data:list",
+						"operation:data:detail",
+						"operation:data:ship"
+					],
+					"title":"前置仓商品管理"
+				},
+				"name":"control",
+				"page":"/storeManagement/control"
+      },
+			{
+				"path":"stock",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:data:list",
+						"operation:data:detail",
+						"operation:data:ship"
+					],
+					"title":"库存监控"
+				},
+				"name": "stock",
+				"page": "/storeManagement/stock"
+      },
+			{
+				"path":"putIn",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:data:list",
+						"operation:data:detail",
+						"operation:data:ship"
+					],
+					"title":"商品入库"
+				},
+				"name": "putIn",
+				"page": "/storeManagement/putIn"
+      },
+      {
+        "path":"outStock",
+        "meta":{
+          "noCache":true,
+          "perms":[
+            "operation:data:list",
+            "operation:data:detail",
+            "operation:data:ship"
+          ],
+          "title":"商品出库"
+        },
+        "name": "outStock",
+        "page": "/storeManagement/outStock"
+      },
+      {
+				"path":"addWare",
+				"hidden":true,
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:data:addWare",
+						"operation:data:edit"
+					],
+					"title":"新增仓库"
+				},
+				"name":"addWare",
+				"page":"/storeManagement/addWare"
+			},
+      {
+				"path":"editWare",
+				"hidden":true,
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:data:addWare",
+						"operation:data:edit"
+					],
+					"title":"编辑仓库"
+				},
+				"name":"addWare",
+				"page":"/storeManagement/addWare"
+			},
+      {
+				"path":"import",
+				"hidden":true,
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:data:import",
+						"operation:data:edit"
+					],
+					"title":"导入商品"
+				},
+				"name":"import",
+				"page":"/storeManagement/import"
+			}
+		],
+		"meta":{
+			"icon":"chart",
+			"title":"前置仓管理"
+		},
+		"name":"mallManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+    "path":"/finance",
+    "children":[
+		],
+		"meta":{
+			"icon":"chart",
+			"title":"财务管理"
+		},
+		"name":"mallManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+    "path":"/dispatch",
+    "children":[
+			{
+			  "path": "rider",
+			  "meta": {
+			    "noCache": true,
+			    "perms": [
+			      "operation:data:list",
+			      "operation:data:detail",
+			      "operation:data:ship"
+			    ],
+			    "title": "配送员管理"
+			  },
+			  "name": "rider",
+			  "page": "/rider/list"
+			}
+		],
+		"meta":{
+			"icon":"chart",
+			"title":"调度管理"
+		},
+		"name":"mallManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+    "path":"/carousel",
+    "children":[
+			{
+				"path": "merchantad_1",
+				"meta": {
+					"noCache": true,
+					"perms": [
+						"promote:advertisement:create",
+						"promote:advertisement:delete",
+						"promote:advertisement:update",
+						"promote:advertisement:query"
+					],
+					"title": "首页轮播"
+				},
+				"name": "merchantad_1",
+				"page": "/promotion/merchantad"
+			},
+			{
+				"path": "merchantad_2",
+				"meta": {
+					"noCache": true,
+					"perms": [
+						"promote:advertisement:create",
+						"promote:advertisement:delete",
+						"promote:advertisement:update",
+						"promote:advertisement:query"
+					],
+					"title": "分类精选"
+				},
+				"name": "merchantad_2",
+				"page": "/promotion/merchantad"
+			},
+			{
+				"path": "merchantad_3",
+				"meta": {
+					"noCache": true,
+					"perms": [
+						"promote:advertisement:create",
+						"promote:advertisement:delete",
+						"promote:advertisement:update",
+						"promote:advertisement:query"
+					],
+					"title": "广告横幅"
+				},
+				"name": "merchantad_3",
+				"page": "/promotion/merchantad"
+			},
+			{
+				"path": "merchantad_4",
+				"meta": {
+					"noCache": true,
+					"perms": [
+						"promote:advertisement:create",
+						"promote:advertisement:delete",
+						"promote:advertisement:update",
+						"promote:advertisement:query"
+					],
+					"title": "精品类目"
+				},
+				"name": "merchantad_4",
+				"page": "/promotion/merchantad"
+			},
+      {
+        "path": "merchantad_5",
+        "meta": {
+          "noCache": true,
+          "perms": [
+            "promote:advertisement:create",
+            "promote:advertisement:delete",
+            "promote:advertisement:update",
+            "promote:advertisement:query"
+          ],
+          "title": "活动弹窗"
+        },
+        "name": "merchantad_5",
+        "page": "/promotion/merchantad"
+      },
+      {
+        "path": "merchantad_6",
+        "meta": {
+          "noCache": true,
+          "perms": [
+            "promote:advertisement:create",
+            "promote:advertisement:delete",
+            "promote:advertisement:update",
+            "promote:advertisement:query"
+          ],
+          "title": "首页图片"
+        },
+        "name": "merchantad_5",
+        "page": "/promotion/merchantad"
+      },
+      {
+        "path": "merchantad_7",
+        "meta": {
+          "noCache": true,
+          "perms": [
+            "promote:advertisement:create",
+            "promote:advertisement:delete",
+            "promote:advertisement:update",
+            "promote:advertisement:query"
+          ],
+          "title": "分类图片"
+        },
+        "name": "merchantad_5",
+        "page": "/promotion/merchantad"
+      },
+      {
+        "path": "merchantad_8",
+        "meta": {
+          "noCache": true,
+          "perms": [
+            "promote:advertisement:create",
+            "promote:advertisement:delete",
+            "promote:advertisement:update",
+            "promote:advertisement:query"
+          ],
+          "title": "个人中心"
+        },
+        "name": "merchantad_5",
+        "page": "/promotion/merchantad"
+      },
+      {
+        "path": "merchantad_10",
+        "meta": {
+          "noCache": true,
+          "perms": [
+            "promote:advertisement:create",
+            "promote:advertisement:delete",
+            "promote:advertisement:update",
+            "promote:advertisement:query"
+          ],
+          "title": "特价列表"
+        },
+        "name": "merchantad_5",
+        "page": "/promotion/merchantad"
+      }
+		],
+		"meta":{
+			"icon":"chart",
+			"title":"轮播管理"
+		},
+		"name":"mallManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+    "path":"/activity",
+    "children":[
+			{
+				"path":"activityList",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:activity:list",
+						"operation:activity:detail",
+						"operation:activity:ship"
+					],
+					"title":"活动管理"
+				},
+				"name":"activityList",
+				"page":"/activityCenter/activityList"
+			},
+			{
+				"path":"couponManage",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:coupon:list",
+						"operation:coupon:detail",
+						"operation:coupon:ship"
+					],
+					"title":"优惠券管理"
+				},
+				"name":"couponManage",
+				"page":"/activityCenter/couponManage"
+			},
+			{
+				"path":"createActivity",
+				"hidden":true,
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:order:list",
+						"operation:order:detail",
+						"operation:order:ship"
+					],
+					"title":"新建活动"
+				},
+				"name": "createActivity",
+				"page":"/activityCenter/editActivity"
+			},
+			{
+				"path": "editActivity",
+				"hidden":true,
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:order:list",
+						"operation:order:detail",
+						"operation:order:ship"
+					],
+					"title":"编辑活动"
+				},
+				"name": "editActivity",
+				"page": "/activityCenter/editActivity"
+			},
+			{
+				"path": "groupshop",
+				"meta": {
+					"noCache": true,
+					"perms": [
+						"operation:groupShop:query",
+						"operation:groupShop:create",
+						"operation:groupShop:delete"
+					],
+					"title": "团购商品"
+				},
+				"name": "groupShop",
+				"page": "/goods/groupshop"
+			}
+		],
+		"meta":{
+			"icon":"chart",
+			"title":"活动中心"
+		},
+		"name":"mallManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+		"path":"/goods",
+		"children":[
+			{
+				"path":"list",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:goods:list",
+						"operation:goods:create"
+					],
+					"title":"商品列表"
+				},
+				"name":"goodsList",
+				"page":"/goods/list"
+			},
+			{
+				"path":"category",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:category:create",
+						"operation:category:query",
+						"admin:category:update",
+						"operation:category:delete"
+					],
+					"title":"商品类目"
+				},
+				"name":"goodsCategory",
+				"page":"/goods/category"
+			},
+			{
+				"path":"upsert",
+				"hidden":true,
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"operation:goods:create",
+						"operation:goods:edit"
+					],
+					"title":"商品编辑"
+				},
+				"name":"goodsUpsert",
+				"page":"/goods/upsert"
+			}
+		],
+		"meta":{
+			"icon":"shopping",
+			"title":"商品管理"
+		},
+		"name":"goodsManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+		"path":"/promotion",
+		"children":[
+			{
+				"path":"recommend",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"promote:recommend:create",
+						"promote:recommend:delete",
+						"promote:recommend:update",
+						"promote:recommend:query"
+					],
+					"title":"推荐管理"
+				},
+				"name":"recommend",
+				"page":"/promotion/recommend"
+			}
+		],
+		"meta":{
+			"icon":"tree",
+			"title":"推广管理"
+		},
+		"name":"promotionManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+		"path":"/sys",
+		"children":[
+			{
+				"path":"admin",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"admin:admin:list",
+						"admin:admin:create",
+						"admin:admin:update",
+						"admin:admin:delete"
+					],
+					"title":"管理员"
+				},
+				"name":"admin",
+				"page":"/sys/admin"
+			},
+			{
+				"path":"role",
+				"meta":{
+					"noCache":true,
+					"perms":[
+						"admin:role:list",
+						"admin:role:create",
+						"admin:role:delete",
+						"admin:role:update",
+						"admin:role:permissionList",
+            "admin:permission:list",
+            "admin:permission:datalist"
+					],
+					"title":"角色管理"
+				},
+				"name":"role",
+				"page":"/sys/role"
+			},
+			{
+				"path": "merchant",
+				"meta": {
+					"noCache": true,
+					"perms": [
+						"promote:merchant:create",
+						"promote:merchant:update",
+						"promote:merchant:query"
+					],
+					"title": "系统参数"
+				},
+				"name": "merchant",
+				"page": "/promotion/merchant"
+      },
+      {
+				"path": "newpaper",
+				"meta": {
+					"noCache": true,
+					"perms": [
+						"promote:newpaper:edit"
+					],
+					"title": "新鲜时报"
+				},
+				"name": "newpaper",
+				"page": "/promotion/newpaper"
+			}
+		],
+		"meta":{
+			"icon":"chart",
+			"title":"系统管理"
+		},
+		"name":"sysManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
+		"path":"/profile",
+		"hidden":true,
+		"children":[
+			{
+				"path":"password",
+				"meta":{
+					"noCache":true,
+					"title":"修改密码"
+				},
+				"name":"password",
+				"page":"/profile/password"
+			},
+			{
+				"path":"notify",
+				"meta":{
+					"noCache":true,
+					"title":"绑定通知"
+				},
+				"name":"notify",
+				"page":"/profile/notify"
+			}
+		],
+		"alwaysShow":true
+	},
+	{
+		"redirect":"/404",
+		"path":"*",
+		"hidden":true
+	}
+]
