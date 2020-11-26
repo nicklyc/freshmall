@@ -28,7 +28,7 @@ kxmall项目结构:
 ---
 #### 优先更新地址
 
-[01-kxmall源码地址](https://github.com/zhengkaixing/kxmall) https://github.com/zhengkaixing/kxmall
+[01-kxmall源码地址](https://gitee.com/zhengkaixing/kxmall.git) https://gitee.com/zhengkaixing/kxmall.git
 
 ---
 
