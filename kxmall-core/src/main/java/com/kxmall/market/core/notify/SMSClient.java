@@ -13,6 +13,11 @@ public interface SMSClient {
 
     public SMSResult sendResetPasswordVerify(String phone, String verifyCode) throws ServiceException;
 
+    /**
+     * 发送短信
+     * @param phone  手机号
+     * @param verifyCode 验证码、
+     */
     public SMSResult sendAdminLoginVerify(String phone,String verifyCode) throws ServiceException;
 
 

@@ -7,10 +7,6 @@ import com.kxmall.market.core.Const;
 import com.kxmall.market.core.exception.AdminServiceException;
 import com.kxmall.market.core.exception.ExceptionDefinition;
 import com.kxmall.market.core.exception.ServiceException;
-import com.kxmall.market.core.exception.ThirdPartServiceException;
-import com.kxmall.market.core.notify.SMSClient;
-import com.kxmall.market.core.notify.SMSResult;
-import com.kxmall.market.core.util.GeneratorUtil;
 import com.kxmall.market.core.util.MD5Util;
 import com.kxmall.market.core.util.SHAUtil;
 import com.kxmall.market.data.component.CacheComponent;
@@ -67,9 +63,6 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private CacheComponent cacheComponent;
 
-    @Autowired
-    private SMSClient smsClient;
-
     @Value("${com.kxmall.admin.notify.uninotify.url}")
     private String uniNotifyUrl;
 
@@ -99,7 +92,7 @@ public class AdminServiceImpl implements AdminService {
         String verifyKey = Constants.CAPTCHA_CODE_KEY + uuid;
         String code = cacheComponent.getRaw(verifyKey);
         cacheComponent.del(verifyKey);
-        if (!"guest".equals(username) && (code == null || !code.equalsIgnoreCase(verifyCode))) {
+        if (code == null || !code.equalsIgnoreCase(verifyCode)) {
             throw new AdminServiceException(ExceptionDefinition.ADMIN_VERIFYCODE_ERROR);
         }
         if (!MD5Util.verify(password, username, adminDO.getPassword())) {
@@ -239,27 +232,6 @@ public class AdminServiceImpl implements AdminService {
             return "ok";
         }
         throw new AdminServiceException(ExceptionDefinition.ADMIN_UNKNOWN_EXCEPTION);
-    }
-
-    @Override
-    public Boolean sendLoginMsg(String username,String password) throws ServiceException {
-        if ("guest".equals(username)) {
-            throw new AdminServiceException(ExceptionDefinition.ADMIN_GUEST_NOT_NEED_VERIFY_CODE);
-        }
-        AdminDO adminDO = new AdminDO();
-        adminDO.setUsername(username);
-        adminDO.setPassword(MD5Util.md5(password,username));
-        AdminDO admin = adminMapper.selectOne(adminDO);
-        if(admin == null){
-            throw new AdminServiceException(ExceptionDefinition.ADMIN_USER_NOT_EXITS);
-        }
-        String code = GeneratorUtil.genSixVerifyCode();
-        cacheComponent.putRaw(ADMIN_MSG_CODE+admin.getPhone(), code,300 );
-        SMSResult smsResult = smsClient.sendAdminLoginVerify(admin.getPhone(), code);
-        if(!smsResult.isSucc()){
-            throw new ThirdPartServiceException(smsResult.getMsg(), ExceptionDefinition.ADMIN_VERIFY_CODE_SEND_FAIL.getCode());
-        }
-        return true;
     }
 
     @Override

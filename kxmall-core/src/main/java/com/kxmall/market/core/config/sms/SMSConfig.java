@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by admin on 2019/7/2.
+ * Created by admin on 2020/11/26.
  */
 @Configuration
 public class SMSConfig {
