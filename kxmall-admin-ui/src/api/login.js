@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import Qs from 'qs'
 
 const captchaImagePath = process.env.HOST + '/captchaImage'
 
@@ -17,17 +16,6 @@ export function loginByUsername(username, password, verifyCode, uuid) {
       _mt: 'login',
       ...data
     }
-  })
-}
-
-export function sendMsg(data) {
-  return request({
-    method: 'post',
-    data: Qs.stringify({
-      _gp: 'admin',
-      _mt: 'sendLoginMsg',
-      ...data
-    })
   })
 }
 

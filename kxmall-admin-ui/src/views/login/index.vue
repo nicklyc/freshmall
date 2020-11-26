@@ -11,12 +11,12 @@
           class="img"
           src="@/assets/avatar.png"
           alt="">
-        <p class="title">河禾 商城后台登录</p>
+        <p class="title">kxmall 商城后台登录</p>
       </div>
       <div class="login-border">
         <div class="login-main">
           <h4 class="login-title">
-            登录 hehe
+            登录 kxmall
           </h4>
           <el-form
             ref="loginForm"
@@ -57,21 +57,23 @@
               </el-input>
             </el-form-item>
             <el-form-item prop="code">
-              <el-input
-                v-model="loginForm.verifyCode"
-                placeholder="输入验证码"
-                size="small"
-                auto-complete="off"
-                clearable
-                @keyup.enter.native="handleLogin">
-                <i
-                  slot="prefix"
-                  class="icon-yanzhengma"
-                  style="margin-top:6px;"/>
-                <template slot="append">
-                  <img :src="codeUrl" @click="getCode" >
-                </template>
-              </el-input>
+              <el-col :span="16">
+                <el-input
+                  v-model="loginForm.verifyCode"
+                  placeholder="输入验证码"
+                  size="small"
+                  auto-complete="off"
+                  clearable
+                  @keyup.enter.native="handleLogin">
+                  <i
+                    slot="prefix"
+                    class="icon-yanzhengma"
+                    style="margin-top:6px;"/>
+                </el-input>
+              </el-col>
+              <el-col :span="6">
+                <img :src="codeUrl" @click="getCode" >
+              </el-col>
             </el-form-item>
             <el-form-item>
               <el-button
@@ -85,7 +87,7 @@
           <div class="login-menu">
             <a
               href="#"
-              @click.stop="activeName='user'">河禾官网</a>
+              @click.stop="activeName='user'">kxmall官网</a>
             <a
               href="#"
               @click.stop="activeName='code'">客服</a>
@@ -98,7 +100,7 @@
 </template>
 
 <script>
-import { sendMsg, getCodeImg } from '@/api/login'
+import { getCodeImg } from '@/api/login'
 
 export default {
   name: 'Login',
@@ -165,53 +167,6 @@ export default {
         this.loginForm.uuid = res.data.uuid
       })
     },
-    sendShortMsg() {
-      if (!this.show) {
-        this.$notify.error({
-          title: '失败',
-          message: '请等待60s后重试'
-        })
-        return
-      }
-      if (this.loginForm.username == null || this.loginForm.username === '' || this.loginForm.password == null || this.loginForm.password === '') {
-        this.$notify.error({
-          title: '失败',
-          message: '请先填写用户名和密码'
-        })
-        return false
-      }
-      this.verifyLoading = true
-      sendMsg(this.loginForm)
-        .then(response => {
-          this.verifyLoading = false
-          this.$notify.success({
-            title: '成功',
-            message: '信息发送成功'
-          })
-          const TIME_COUNT = 60
-          if (!this.timer) {
-            this.count = TIME_COUNT
-            this.show = false
-            this.timer = setInterval(() => {
-              if (this.count > 0 && this.count <= TIME_COUNT) {
-                this.count--
-              } else {
-                this.show = true
-                clearInterval(this.timer)
-                this.timer = null
-              }
-            }, 1000)
-          }
-        })
-        .catch(response => {
-          this.verifyLoading = false
-          this.$notify.error({
-            title: '失败',
-            message: response.data.errmsg
-          })
-          this.verifyLoading = false
-        })
-    },
     showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
@@ -257,6 +212,18 @@ export default {
 .msg-text.display {
   color: #ccc;
 }
+  .myInput {
+    background-color: #F5F7FA;
+    color: #909399;
+    vertical-align: middle;
+    display: table-cell;
+    position: relative;
+    border: 1px solid #DCDFE6;
+    border-radius: 4px;
+    padding: 0 20px;
+    width: 1px;
+    white-space: nowrap;
+  }
 </style>
 
 <style lang="scss">
