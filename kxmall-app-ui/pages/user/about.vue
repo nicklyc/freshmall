@@ -12,7 +12,7 @@
 			<text class="tit">邮箱</text>
 			<text class="tiv">hehefresh@163.com</text>
 		</view>
-		<text class="tcp">由河禾科技发展有限公司开发</text>
+		<text class="tcp">由kxmll发展有限公司开发</text>
 	</view>
 </template>
 

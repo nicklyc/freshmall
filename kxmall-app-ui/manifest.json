@@ -1,5 +1,5 @@
 {
-    "name" : "河禾生鲜",
+    "name" : "kxmall",
     "appid" : "__UNI__8F37C90",
     "description" : "",
     "versionName" : "1.0.0",
@@ -71,13 +71,13 @@
             "sdkConfigs" : {
                 "payment" : {
                     "weixin" : {
-                        "appid" : "wx6e1355f89b03fd2e"
+                        "appid" : "wx20aaa093e14c9943"
                     }
                 },
                 "oauth" : {
                     "weixin" : {
-                        "appid" : "wx6e1355f89b03fd2e",
-                        "appsecret" : "73b5a5c361a32518a88c45e4c5643153"
+                        "appid" : "wx20aaa093e14c9943",
+                        "appsecret" : "f3e6ef59985aac4db651cdc49dfe5f7a"
                     }
                 },
                 "maps" : {
@@ -131,12 +131,12 @@
     "mp-weixin" : {
         /* 小程序特有相关 */
         "usingComponents" : true,
-        "appid" : "wxcd6245a555300732",
+        "appid" : "wx20aaa093e14c9943",
         "setting" : {
             "urlCheck" : false,
-            "es6" : false,
+            "es6" : true,
             "postcss" : false,
-            "minified" : false
+            "minified" : true
         },
         "permission" : {
             "scope.userLocation" : {
@@ -145,7 +145,7 @@
         }
     },
     "h5" : {
-        "title" : "涞了么生鲜",
+        "title" : "kxmall",
         "domain" : "m.xiaoyuanawan.com",
         "router" : {
             "mode" : "history"

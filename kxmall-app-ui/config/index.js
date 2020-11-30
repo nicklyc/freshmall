@@ -1,6 +1,6 @@
 const dev = {
 	baseUrl: 'http://localhost:8585',
-	h5Appid: 'wx0fd4343a4bd62ff6',
+	h5Appid: 'wxdb19069bd8e49de3',
 	// debug: true
 }
 

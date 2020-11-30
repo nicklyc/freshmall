@@ -5,7 +5,7 @@
 				<view class="status-bar"></view>
 				<view class="flex align-center justify-center text-white" style="font-size: 36rpx;font-weight: 500; position: absolute;width: 750rpx;"
 				 :style="'top:'+navbarTop+'px;height:'+navHeight+'px;'">
-					河禾生鲜
+					kxmall
 				</view>
 				<view v-if="appear" :style="'margin-top:'+MT+'px;'" class="flex justify-between align-center padding-lr ">
 					<view @click="chooseLocation" class="flex align-center" style="padding-left: 6rpx;">
