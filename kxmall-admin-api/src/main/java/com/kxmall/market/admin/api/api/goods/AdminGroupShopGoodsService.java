@@ -15,7 +15,7 @@ import java.util.List;
 @HttpOpenApi(group = "admin.groupShop", description = "管理团购商品服务")
 public interface AdminGroupShopGoodsService {
 
-    @HttpMethod(description = "增加", permission = "operation:groupShop:create", permissionParentName = "商品管理", permissionName = "团购商品管理")
+    @HttpMethod(description = "增加", permission = "operation:groupShop:addGroupShopSpu", permissionParentName = "商品管理", permissionName = "团购商品管理")
     public String addGroupShopSpu(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员Id") Long adminId,
             @NotNull @HttpParam(name = "spuId", type = HttpParamType.COMMON, description = "spuId") Long spuId,
@@ -25,12 +25,12 @@ public interface AdminGroupShopGoodsService {
             @NotNull @HttpParam(name = "automaticRefund", type = HttpParamType.COMMON, description = "团购人数未满是否自动退款")  Integer automaticRefund,
             @NotNull @HttpParam(name = "groupShopSkuList", type = HttpParamType.COMMON, description = "团购sku链表") List groupShopSkuList) throws ServiceException;
 
-    @HttpMethod(description = "删除", permission = "operation:groupShop:delete", permissionParentName = "商品管理", permissionName = "团购商品管理")
+    @HttpMethod(description = "删除", permission = "operation:groupShop:deleteGroupShopSpu", permissionParentName = "商品管理", permissionName = "团购商品管理")
     public String deleteGroupShopSpu(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员Id") Long adminId,
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "团购商品的Id") Long id) throws  ServiceException;
 
-    @HttpMethod(description = "修改", permission = "operation:groupShop:update", permissionParentName = "商品管理", permissionName = "团购商品管理")
+    @HttpMethod(description = "修改", permission = "operation:groupShop:editGroupShopSpu", permissionParentName = "商品管理", permissionName = "团购商品管理")
     public GroupShopDTO editGroupShopSpu(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员Id") Long adminId,
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "团购商品spuID") Long id,
@@ -41,7 +41,7 @@ public interface AdminGroupShopGoodsService {
             @NotNull @HttpParam(name = "automaticRefund", type = HttpParamType.COMMON, description = "团购人数未满是否自动退款")  Integer automaticRefund,
             @NotNull @HttpParam(name = "groupShopSkuList", type = HttpParamType.COMMON, description = "团购sku链表") List groupShopSkuDOList ) throws ServiceException;
 
-    @HttpMethod(description = "查询", permission = "operation:groupShop:query", permissionParentName = "商品管理", permissionName = "团购商品管理")
+    @HttpMethod(description = "查询", permission = "operation:groupShop:queryGroupShop", permissionParentName = "商品管理", permissionName = "团购商品管理")
     public Page<GroupShopDTO> queryGroupShop(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员Id") Long adminId,
             @HttpParam(name = "id", type = HttpParamType.COMMON, description = "团购商品的ID") Long id,

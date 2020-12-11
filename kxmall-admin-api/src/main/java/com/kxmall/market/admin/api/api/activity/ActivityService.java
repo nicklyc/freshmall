@@ -33,7 +33,7 @@ public interface ActivityService {
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "查询", permission = "admin:activity:query", permissionParentName = "推广管理", permissionName = "优惠管理")
+    @HttpMethod(description = "查询", permission = "admin:activity:query", permissionParentName = "活动管理", permissionName = "优惠管理")
     public ActivityDTO queryActivityById(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "活动ID") Long id) throws ServiceException;

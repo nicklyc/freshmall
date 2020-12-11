@@ -1,10 +1,5 @@
-package com.kxmall.market.admin.api.api.goods;/*
-@PackageName:com.kxmall.kxmall.admin.api.goods
-@ClassName: AdminGroupShopGoodsServiceImpl
-@Description:
-@author admin
-@date 19-11-13下午4:21
-*/
+package com.kxmall.market.admin.api.api.goods;
+
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -40,6 +35,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 团购
+ * @author kaixin
+ */
 @Service
 @EnableScheduling
 public class AdminGroupShopGoodsServiceImpl implements AdminGroupShopGoodsService {
