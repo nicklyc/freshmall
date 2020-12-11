@@ -47,7 +47,7 @@
         placeholder="请输入昵称"
       />
       <el-button
-        v-permission="['system:user:query']"
+        v-permission="['admin:user:query']"
         class="filter-item"
         type="primary"
         icon="el-icon-search"
@@ -55,7 +55,7 @@
       >查找</el-button>
       <!--添加用户-->
       <!-- <el-button
-        v-permission="['system:user:create']"
+        v-permission="['admin:user:create']"
         class="filter-item"
         type="primary"
         icon="el-icon-edit"
@@ -110,19 +110,19 @@
       <el-table-column align="center" label="操作" width="300" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
-            v-permission="['system:user:update']"
+            v-permission="['admin:user:update']"
             type="primary"
             size="mini"
             @click="handleStatus(scope.row)"
           >{{ scope.row.status === 0? '激活' : '冻结' }}</el-button>
           <el-button
-            v-permission="['system:user:update']"
+            v-permission="['admin:user:update']"
             type="primary"
             size="mini"
             @click="handleUpdate(scope.row)"
           >编辑</el-button>
           <el-button
-            v-permission="['system:user:delete']"
+            v-permission="['admin:user:delete']"
             type="danger"
             size="mini"
             @click="handleDelete(scope.row)"

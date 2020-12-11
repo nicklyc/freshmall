@@ -32,7 +32,7 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button v-if="!isEdit" type="primary" @click="isEdit=!isEdit">编辑</el-button>
+          <el-button v-permission="['promote:newtimes:updageOrAdd']" v-if="!isEdit" type="primary" @click="isEdit=!isEdit">编辑</el-button>
           <el-button v-else :loading="loadingSave" type="primary" @click="newpaperSave">保存</el-button>
           <el-checkbox v-model="isStop" :disabled="!isEdit" label="暂停" border style="padding-top:9px;margin-left:20px;margin-right:10px;"></el-checkbox>
           <span>{{ stopTip }}</span>
@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-import { queryStore, getNewTimes, updageOrAdd } from '@/api/newpaper'
+import { queryStore, getNewTimes, updageOrAdd } from '@/api/newtimes'
 import store from '@/store'
 export default{
   data() {

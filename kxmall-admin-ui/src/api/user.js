@@ -5,7 +5,7 @@ export function fetchList(query) {
     method: 'get',
     params: {
       _gp: 'admin.user',
-      _mt: 'getUser',
+      _mt: 'query',
       ...query
     }
   })
@@ -28,7 +28,7 @@ export function createUser(data) {
     method: 'post',
     params: {
       _gp: 'admin.user',
-      _mt: 'addUser',
+      _mt: 'create',
       user: JSON.stringify(data)
     }
   })
@@ -39,7 +39,7 @@ export function updateUser(data) {
     method: 'post',
     params: {
       _gp: 'admin.user',
-      _mt: 'updateUser',
+      _mt: 'update',
       user: JSON.stringify(data)
     }
   })
@@ -50,7 +50,7 @@ export function deleteUser(id, nickname) {
     method: 'post',
     params: {
       _gp: 'admin.user',
-      _mt: 'deleteUser',
+      _mt: 'delete',
       id: id,
       nickname: nickname
     }

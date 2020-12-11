@@ -210,7 +210,7 @@ import { uploadPath } from '@/api/storage'
 import { getToken } from '@/utils/auth'
 import { clearTreeEmptyChildren } from '@/utils/index'
 import Pagination from '@/components/Pagination'
-import ElOption from '../../../node_modules/element-ui/packages/select/src/option' // Secondary package based on el-pagination
+import ElOption from 'element-ui/packages/select/src/option' // Secondary package based on el-pagination
 
 const adTypeMap = [
   { value: 1, unionType: 3, name: '首页轮播' },

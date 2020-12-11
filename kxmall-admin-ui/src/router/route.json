@@ -560,6 +560,22 @@
 				"name":"admin",
 				"page":"/sys/admin"
 			},
+      {
+        "path": "user",
+        "meta": {
+          "noCache": true,
+          "perms": [
+            "admin:user:updateStatus",
+            "admin:user:create",
+            "admin:user:delete",
+            "admin:user:update",
+            "admin:user:query"
+          ],
+          "title": "用户管理"
+        },
+        "name": "user",
+        "page": "/sys/user"
+      },
 			{
 				"path":"role",
 				"meta":{
@@ -578,31 +594,17 @@
 				"name":"role",
 				"page":"/sys/role"
 			},
-			{
-				"path": "merchant",
-				"meta": {
-					"noCache": true,
-					"perms": [
-						"promote:merchant:create",
-						"promote:merchant:update",
-						"promote:merchant:query"
-					],
-					"title": "系统参数"
-				},
-				"name": "merchant",
-				"page": "/promotion/merchant"
-      },
       {
-				"path": "newpaper",
+				"path": "newtimes",
 				"meta": {
 					"noCache": true,
 					"perms": [
-						"promote:newpaper:edit"
+						"promote:newtimes:updageOrAdd"
 					],
 					"title": "新鲜时报"
 				},
-				"name": "newpaper",
-				"page": "/promotion/newpaper"
+				"name": "newtimes",
+				"page": "/sys/newtimes"
 			}
 		],
 		"meta":{

@@ -5,7 +5,7 @@ export function queryStore(data) {
   return request({
     method: 'get',
     params: {
-      _gp: 'admin.newtimes',
+      _gp: 'promote.newtimes',
       _mt: 'storagAllName',
       ...data
     }
@@ -17,7 +17,7 @@ export function getNewTimes(data) {
   return request({
     method: 'get',
     params: {
-      _gp: 'admin.newtimes',
+      _gp: 'promote.newtimes',
       _mt: 'getNewTimes',
       ...data
     }
@@ -29,7 +29,7 @@ export function updageOrAdd(data) {
   return request({
     method: 'get',
     params: {
-      _gp: 'admin.newtimes',
+      _gp: 'promote.newtimes',
       _mt: 'updageOrAdd',
       ...data
     }
