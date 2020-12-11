@@ -21,30 +21,30 @@ import com.kxmall.market.data.model.Page;
 @HttpOpenApi(group = "admin.user", description = "用户管理")
 public interface AdminUserService {
 
-    @HttpMethod(description = "创建", permission = "system:user:create", permissionParentName = "系统管理", permissionName = "用户管理")
-    public Boolean addUser(
+    @HttpMethod(description = "创建", permission = "admin:user:create", permissionParentName = "系统管理", permissionName = "用户管理")
+    public Boolean create(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "user", type = HttpParamType.COMMON, description = "用户信息") UserDO user) throws ServiceException;
 
-    @HttpMethod(description = "删除", permission = "system:user:delete", permissionParentName = "系统管理", permissionName = "用户管理")
-    public Boolean deleteUser(
+    @HttpMethod(description = "删除", permission = "admin:user:delete", permissionParentName = "系统管理", permissionName = "用户管理")
+    public Boolean delete(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "用户Id") Long id) throws ServiceException;
 
-    @HttpMethod(description = "修改", permission = "system:user:update", permissionParentName = "系统管理", permissionName = "用户管理")
-    public Boolean updateUser(
+    @HttpMethod(description = "修改", permission = "admin:user:update", permissionParentName = "系统管理", permissionName = "用户管理")
+    public Boolean update(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "user", type = HttpParamType.COMMON, description = "用户信息") UserDO user) throws ServiceException;
 
-    @HttpMethod(description = "激活冻结", permission = "system:user:update", permissionParentName = "系统管理", permissionName = "用户管理")
+    @HttpMethod(description = "激活冻结", permission = "admin:user:updateStatus", permissionParentName = "系统管理", permissionName = "用户管理")
     public Boolean updateStatus(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "userId", type = HttpParamType.COMMON, description = "用户信息") Long userId,
             @NotNull @HttpParam(name = "status", type = HttpParamType.COMMON, description = "用户信息") Integer status) throws ServiceException;
 
 
-    @HttpMethod(description = "查询", permission = "system:user:query", permissionParentName = "系统管理", permissionName = "用户管理")
-    public Page<UserDO> getUser(
+    @HttpMethod(description = "查询", permission = "admin:user:query", permissionParentName = "系统管理", permissionName = "用户管理")
+    public Page<UserDO> query(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @HttpParam(name = "phone", type = HttpParamType.COMMON, description = "用户手机号") String phone,
             @HttpParam(name = "nickname", type = HttpParamType.COMMON, description = "用户昵称") String nickname,

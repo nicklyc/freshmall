@@ -30,7 +30,7 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Boolean addUser(Long adminId, UserDO user) throws ServiceException {
+    public Boolean create(Long adminId, UserDO user) throws ServiceException {
         if (user == null) {
             throw new AdminServiceException(ExceptionDefinition.USER_INFORMATION_MISSING);
         }
@@ -50,14 +50,14 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Boolean deleteUser(Long adminId, Long id) throws ServiceException {
+    public Boolean delete(Long adminId, Long id) throws ServiceException {
         return userMapper.delete(new EntityWrapper<UserDO>()
                 .eq("id", id)) > 0;
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Boolean updateUser(Long adminId, UserDO user) throws ServiceException {
+    public Boolean update(Long adminId, UserDO user) throws ServiceException {
         if (user == null || user.getId() == null) {
             throw new AdminServiceException(ExceptionDefinition.USER_INFORMATION_MISSING);
         }
@@ -92,7 +92,7 @@ public class AdminUserServiceImpl implements AdminUserService {
     }
 
     @Override
-    public Page<UserDO> getUser(Long adminId, String phone, String nickname, Integer level, Integer gender, Integer status, Integer pageNo, Integer limit) throws ServiceException {
+    public Page<UserDO> query(Long adminId, String phone, String nickname, Integer level, Integer gender, Integer status, Integer pageNo, Integer limit) throws ServiceException {
         Integer count = userMapper.countUser(phone, nickname, level, gender, status);
         List<UserDO> userDOList = userMapper.getUserList(phone, nickname, level, gender, status, limit * (pageNo - 1), limit);
         Page<UserDO> page = new Page<UserDO>(userDOList, pageNo, limit, count);
