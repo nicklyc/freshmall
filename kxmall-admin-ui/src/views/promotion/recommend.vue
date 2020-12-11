@@ -13,14 +13,14 @@
         <el-option v-for="(key,index) in recommendTypeMap" :key="index" :label="key.value" :value="key.label" />
       </el-select>
       <el-button
-        v-permission="['promote:recommend:query']"
+        v-permission="['admin:recommend:queryRecommendByType']"
         class="filter-item"
         type="primary"
         icon="el-icon-search"
         @click="queryRecommendBtn"
       >查找</el-button>
       <el-button
-        v-permission="['promote:recommend:create']"
+        v-permission="['admin:recommend:addRecommendBatch']"
         class="filter-item"
         type="primary"
         icon="el-icon-edit"
@@ -52,13 +52,13 @@
       <el-table-column align="center" label="操作" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <!-- <el-button
-            v-permission="['promote:advertisement:update']"
+            v-permission="['admin:advertisement:update']"
             type="primary"
             size="mini"
             @click="updateDialogBtn(scope.row)"
           >编辑</el-button> -->
           <el-button
-            v-permission="['promote:advertisement:delete']"
+            v-permission="['admin:recommend:deleteRecommend']"
             type="danger"
             size="mini"
             @click="deleteRecommendBtn(scope.row)"

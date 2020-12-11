@@ -193,18 +193,6 @@
 	},
 	{
 		"redirect":"noredirect",
-    "path":"/finance",
-    "children":[
-		],
-		"meta":{
-			"icon":"chart",
-			"title":"财务管理"
-		},
-		"name":"mallManage",
-		"alwaysShow":true
-	},
-	{
-		"redirect":"noredirect",
     "path":"/dispatch",
     "children":[
 			{
@@ -437,20 +425,6 @@
 				},
 				"name": "editActivity",
 				"page": "/activityCenter/editActivity"
-			},
-			{
-				"path": "groupshop",
-				"meta": {
-					"noCache": true,
-					"perms": [
-						"operation:groupShop:query",
-						"operation:groupShop:create",
-						"operation:groupShop:delete"
-					],
-					"title": "团购商品"
-				},
-				"name": "groupShop",
-				"page": "/goods/groupshop"
 			}
 		],
 		"meta":{
@@ -482,10 +456,10 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:category:create",
-						"operation:category:query",
-						"admin:category:update",
-						"operation:category:delete"
+						"operation:category:addCategory",
+						"operation:category:queryCategory",
+						"operation:category:updateCategory",
+						"operation:category:deleteCategory"
 					],
 					"title":"商品类目"
 				},
@@ -498,14 +472,34 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
+						"operation:goods:list",
 						"operation:goods:create",
-						"operation:goods:edit"
+						"operation:goods:edit",
+						"operation:goods:detail",
+						"operation:goods:freezeOrActivation",
+						"operation:goods:delete",
+						"operation:goods:batchdelete"
 					],
 					"title":"商品编辑"
 				},
 				"name":"goodsUpsert",
 				"page":"/goods/upsert"
-			}
+			},
+      {
+        "path": "groupshop",
+        "meta": {
+          "noCache": true,
+          "perms": [
+            "operation:groupShop:editGroupShopSpu",
+            "operation:groupShop:queryGroupShop",
+            "operation:groupShop:addGroupShopSpu",
+            "operation:groupShop:deleteGroupShopSpu"
+          ],
+          "title": "团购商品"
+        },
+        "name": "groupShop",
+        "page": "/goods/groupshop"
+      }
 		],
 		"meta":{
 			"icon":"shopping",
@@ -523,10 +517,11 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"promote:recommend:create",
-						"promote:recommend:delete",
-						"promote:recommend:update",
-						"promote:recommend:query"
+						"admin:recommend:addRecommend",
+						"admin:recommend:addRecommendBatch",
+						"admin:recommend:deleteRecommend",
+						"admin:recommend:queryRecommendByType",
+						"admin:recommend:queryAllRecommend"
 					],
 					"title":"推荐管理"
 				},

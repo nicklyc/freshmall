@@ -7,7 +7,7 @@
       <el-select v-model="listQuery.level" clearable filterable style="width: 200px" class="filter-item" placeholder="请选择类目级别" >
         <el-option v-for="(item,index) in categoryLevelMap" :key="index" :label="item.text" :value="item.value" />
       </el-select>
-      <el-select v-model="queryOptions" clearable filterable placeholder="请选择父类目" @change="handleQuery">
+      <el-select v-model="queryOptions" class="filter-item" clearable filterable placeholder="请选择父类目" @change="handleQuery">
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -26,14 +26,14 @@
         clearable
       /> -->
       <el-button
-        v-permission="['operation:category:query']"
+        v-permission="['operation:category:queryCategory']"
         class="filter-item"
         type="primary"
         icon="el-icon-search"
         @click="handleFilter"
       >查找</el-button>
       <el-button
-        v-permission="['operation:category:create']"
+        v-permission="['operation:category:addCategory']"
         class="filter-item"
         type="primary"
         icon="el-icon-edit"
@@ -86,13 +86,13 @@
       <el-table-column align="center" label="操作" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
-            v-permission="['operation:category:update']"
+            v-permission="['operation:category:updateCategory']"
             type="primary"
             size="mini"
             @click="handleUpdate(scope.row)"
           >编辑</el-button>
           <el-button
-            v-permission="['operation:category:delete']"
+            v-permission="['operation:category:deleteCategory']"
             type="danger"
             size="mini"
             @click="handleDelete(scope.row)"
@@ -241,7 +241,7 @@ export default {
       queryOptions: undefined,
       listQuery: {
         pageNo: 1,
-        limit: 20,
+        limit: 10,
         id: undefined,
         title: undefined,
         level: undefined,
@@ -323,7 +323,7 @@ export default {
     resetQuery() {
       this.listQuery = {
         pageNo: 1,
-        limit: 20,
+        limit: 10,
         id: undefined,
         title: undefined,
         level: undefined,

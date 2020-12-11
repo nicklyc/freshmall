@@ -11,7 +11,7 @@
       <el-button v-permission="['operation:goods:list']" class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">查找</el-button>
       <el-button v-permission="['operation:goods:create']" class="filter-item" type="primary" icon="el-icon-edit" @click="handleCreate">添加</el-button>
       <el-button v-permission="['operation:goods:batchdelete']" :disabled="selectedIds.length === 0" class="filter-item" type="danger" icon="el-icon-delete" @click="handleBatchDelete">批量删除</el-button>
-      <el-button type="primary" @click="importData">导出</el-button>
+      <el-button class="filter-item" type="primary" @click="importData">导出</el-button>
     </div>
     <a
       v-show="false"
@@ -115,8 +115,8 @@
       <el-table-column align="center" label="操作" width="250" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button v-permission="['operation:goods:edit']" type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>
-          <el-button v-permission="['operation:goods:edit']" v-if=" scope.row.status == 1" type="warning" size="mini" @click="freezeOrActivationBtn(scope.row,'freeze')">下架</el-button>
-          <el-button v-permission="['operation:goods:edit']" v-else type="success" size="mini" @click="freezeOrActivationBtn(scope.row,'activation')">上架</el-button>
+          <el-button v-permission="['operation:goods:freezeOrActivation']" v-if=" scope.row.status == 1" type="warning" size="mini" @click="freezeOrActivationBtn(scope.row,'freeze')">下架</el-button>
+          <el-button v-permission="['operation:goods:freezeOrActivation']" v-else type="success" size="mini" @click="freezeOrActivationBtn(scope.row,'activation')">上架</el-button>
           <el-button v-permission="['operation:goods:delete']" type="danger" style="margin:5px" size="mini" @click="handleDelete(scope.row)">删除</el-button>
         </template>
       </el-table-column>
