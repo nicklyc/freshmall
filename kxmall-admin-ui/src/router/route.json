@@ -320,7 +320,7 @@
           ],
           "title": "首页图片"
         },
-        "name": "merchantad_5",
+        "name": "merchantad_6",
         "page": "/promotion/merchantad"
       },
       {
@@ -335,7 +335,7 @@
           ],
           "title": "分类图片"
         },
-        "name": "merchantad_5",
+        "name": "merchantad_7",
         "page": "/promotion/merchantad"
       },
       {
@@ -350,7 +350,7 @@
           ],
           "title": "个人中心"
         },
-        "name": "merchantad_5",
+        "name": "merchantad_8",
         "page": "/promotion/merchantad"
       },
       {
@@ -365,7 +365,7 @@
           ],
           "title": "特价列表"
         },
-        "name": "merchantad_5",
+        "name": "merchantad_10",
         "page": "/promotion/merchantad"
       }
 		],
