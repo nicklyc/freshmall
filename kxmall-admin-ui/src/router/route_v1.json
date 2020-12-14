@@ -193,6 +193,32 @@
 	},
 	{
 		"redirect":"noredirect",
+    "path":"/dispatch",
+    "children":[
+			{
+			  "path": "rider",
+			  "meta": {
+			    "noCache": true,
+			    "perms": [
+			      "operation:data:list",
+			      "operation:data:detail",
+			      "operation:data:ship"
+			    ],
+			    "title": "配送员管理"
+			  },
+			  "name": "rider",
+			  "page": "/rider/list"
+			}
+		],
+		"meta":{
+			"icon":"chart",
+			"title":"调度管理"
+		},
+		"name":"mallManage",
+		"alwaysShow":true
+	},
+	{
+		"redirect":"noredirect",
     "path":"/carousel",
     "children":[
 			{
