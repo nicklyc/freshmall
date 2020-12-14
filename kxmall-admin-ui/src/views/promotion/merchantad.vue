@@ -21,7 +21,7 @@
         <el-option v-for="(key,index) in adTypeMap" :key="index" :label="key.name" :value="key.value" />
       </el-select> -->
       <el-button
-        v-permission="['promote:advertisement:query']"
+        v-permission="['admin:advertisement:queryAdvertisement']"
         class="filter-item"
         type="primary"
         icon="el-icon-search"
@@ -29,7 +29,7 @@
       >查找</el-button>
 
       <el-button
-        v-permission="['promote:advertisement:create']"
+        v-permission="['admin:advertisement:addAdvertisement']"
         class="filter-item"
         type="primary"
         icon="el-icon-edit"
@@ -73,13 +73,13 @@
       <el-table-column align="center" label="操作" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
-            v-permission="['promote:advertisement:update']"
+            v-permission="['admin:advertisement:updateAdvertisement']"
             type="primary"
             size="mini"
             @click="handleUpdate(scope.row)"
           >编辑</el-button>
           <el-button
-            v-permission="['promote:advertisement:delete']"
+            v-permission="['admin:advertisement:deleteAdvertisement']"
             type="danger"
             size="mini"
             @click="handleDelete(scope.row)"

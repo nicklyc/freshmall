@@ -32,8 +32,8 @@
       placeholder="活动结束日期">
     </el-date-picker>
 
-    <el-button type="primary" @click="onSearch()">查询</el-button>
-    <el-button type="primary" @click="onCreate">新建</el-button>
+    <el-button v-permission="['admin:activity:list']" type="primary" @click="onSearch()">查询</el-button>
+    <el-button v-permission="['admin:activity:create']" type="primary" @click="onCreate">新建</el-button>
 
     <!-- 表格内容 -->
     <el-table
@@ -105,9 +105,9 @@
         label="操作">
         <template slot-scope="scope">
           <el-button type="text" size="mini" @click="onEdit(scope.row, scope.$index)">详情</el-button>
-          <el-button type="text" size="mini" @click="onEdit(scope.row, scope.$index)">修改</el-button>
-          <el-button v-show="scope.row.status === 1" type="text" size="mini" @click="onDisable(scope.row)">失效</el-button>
-          <el-button v-show="scope.row.status === 0 " type="text" size="mini" @click="onOpen(scope.row)">激活</el-button>
+          <el-button v-permission="['admin:activity:edit']" type="text" size="mini" @click="onEdit(scope.row, scope.$index)">修改</el-button>
+          <el-button v-permission="['admin:activity:updateStatus']" v-show="scope.row.status === 1" type="text" size="mini" @click="onDisable(scope.row)">失效</el-button>
+          <el-button v-permission="['admin:activity:updateStatus']" v-show="scope.row.status === 0 " type="text" size="mini" @click="onOpen(scope.row)">激活</el-button>
         </template>
       </el-table-column>
     </el-table>

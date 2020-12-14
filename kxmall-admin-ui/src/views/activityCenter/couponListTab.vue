@@ -13,8 +13,8 @@
         :value="item.value"/>
     </el-select>
 
-    <el-button type="primary" @click="onSearch()">查询</el-button>
-    <el-button type="primary" @click="onCreate">新建</el-button>
+    <el-button v-permission="['admin:coupon:queryCouponByTitle']" type="primary" @click="onSearch()">查询</el-button>
+    <el-button v-permission="['admin:coupon:addCoupon']" type="primary" @click="onCreate">新建</el-button>
 
     <!-- 表格内容 -->
     <el-table
@@ -63,10 +63,10 @@
         label="操作">
         <template slot-scope="scope">
           <el-button type="text" size="mini" @click="onView(scope.row, scope.$index)">查看</el-button>
-          <el-button type="text" size="mini" @click="onEdit(scope.row, scope.$index)">修改</el-button>
-          <el-button v-show="Number(scope.row.status) === 1" type="text" size="mini" @click="onFreeze(scope.row)">冻结</el-button>
-          <el-button v-show="Number(scope.row.status) === 0" type="text" size="mini" @click="onActive(scope.row)">激活</el-button>
-          <el-button type="text" size="mini" @click="onDelete(scope.row, scope.$index)">删除</el-button>
+          <el-button v-permission="['admin:coupon:updateCoupon']" type="text" size="mini" @click="onEdit(scope.row, scope.$index)">修改</el-button>
+          <el-button v-permission="['admin:coupon:updateCouponStatus']" v-show="Number(scope.row.status) === 1" type="text" size="mini" @click="onFreeze(scope.row)">冻结</el-button>
+          <el-button v-permission="['admin:coupon:updateCouponStatus']" v-show="Number(scope.row.status) === 0" type="text" size="mini" @click="onActive(scope.row)">激活</el-button>
+          <el-button v-permission="['admin:coupon:deleteCoupon']" type="text" size="mini" @click="onDelete(scope.row, scope.$index)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

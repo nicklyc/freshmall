@@ -18,7 +18,7 @@
         :value="item.value"/>
     </el-select>
 
-    <el-button type="primary" @click="onSearch()">查询</el-button>
+    <el-button v-permission="['admin:coupon:queryUserCouponByList']" type="primary" @click="onSearch()">查询</el-button>
 
     <!-- 表格内容 -->
     <el-table

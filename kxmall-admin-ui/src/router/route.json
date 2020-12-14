@@ -225,12 +225,13 @@
 				"path": "merchantad_1",
 				"meta": {
 					"noCache": true,
-					"perms": [
-						"promote:advertisement:create",
-						"promote:advertisement:delete",
-						"promote:advertisement:update",
-						"promote:advertisement:query"
-					],
+          "perms": [
+            "admin:advertisement:addAdvertisement",
+            "admin:advertisement:deleteAdvertisement",
+            "admin:advertisement:updateAdvertisement",
+            "admin:advertisement:queryAllAdvertisement",
+            "admin:advertisement:queryAdvertisement"
+          ],
 					"title": "首页轮播"
 				},
 				"name": "merchantad_1",
@@ -241,10 +242,11 @@
 				"meta": {
 					"noCache": true,
 					"perms": [
-						"promote:advertisement:create",
-						"promote:advertisement:delete",
-						"promote:advertisement:update",
-						"promote:advertisement:query"
+						"admin:advertisement:addAdvertisement",
+						"admin:advertisement:deleteAdvertisement",
+						"admin:advertisement:updateAdvertisement",
+						"admin:advertisement:queryAllAdvertisement",
+						"admin:advertisement:queryAdvertisement"
 					],
 					"title": "分类精选"
 				},
@@ -255,12 +257,13 @@
 				"path": "merchantad_3",
 				"meta": {
 					"noCache": true,
-					"perms": [
-						"promote:advertisement:create",
-						"promote:advertisement:delete",
-						"promote:advertisement:update",
-						"promote:advertisement:query"
-					],
+          "perms": [
+            "admin:advertisement:addAdvertisement",
+            "admin:advertisement:deleteAdvertisement",
+            "admin:advertisement:updateAdvertisement",
+            "admin:advertisement:queryAllAdvertisement",
+            "admin:advertisement:queryAdvertisement"
+          ],
 					"title": "广告横幅"
 				},
 				"name": "merchantad_3",
@@ -270,12 +273,13 @@
 				"path": "merchantad_4",
 				"meta": {
 					"noCache": true,
-					"perms": [
-						"promote:advertisement:create",
-						"promote:advertisement:delete",
-						"promote:advertisement:update",
-						"promote:advertisement:query"
-					],
+          "perms": [
+            "admin:advertisement:addAdvertisement",
+            "admin:advertisement:deleteAdvertisement",
+            "admin:advertisement:updateAdvertisement",
+            "admin:advertisement:queryAllAdvertisement",
+            "admin:advertisement:queryAdvertisement"
+          ],
 					"title": "精品类目"
 				},
 				"name": "merchantad_4",
@@ -286,10 +290,11 @@
         "meta": {
           "noCache": true,
           "perms": [
-            "promote:advertisement:create",
-            "promote:advertisement:delete",
-            "promote:advertisement:update",
-            "promote:advertisement:query"
+            "admin:advertisement:addAdvertisement",
+            "admin:advertisement:deleteAdvertisement",
+            "admin:advertisement:updateAdvertisement",
+            "admin:advertisement:queryAllAdvertisement",
+            "admin:advertisement:queryAdvertisement"
           ],
           "title": "活动弹窗"
         },
@@ -301,10 +306,11 @@
         "meta": {
           "noCache": true,
           "perms": [
-            "promote:advertisement:create",
-            "promote:advertisement:delete",
-            "promote:advertisement:update",
-            "promote:advertisement:query"
+            "admin:advertisement:addAdvertisement",
+            "admin:advertisement:deleteAdvertisement",
+            "admin:advertisement:updateAdvertisement",
+            "admin:advertisement:queryAllAdvertisement",
+            "admin:advertisement:queryAdvertisement"
           ],
           "title": "首页图片"
         },
@@ -316,10 +322,11 @@
         "meta": {
           "noCache": true,
           "perms": [
-            "promote:advertisement:create",
-            "promote:advertisement:delete",
-            "promote:advertisement:update",
-            "promote:advertisement:query"
+            "admin:advertisement:addAdvertisement",
+            "admin:advertisement:deleteAdvertisement",
+            "admin:advertisement:updateAdvertisement",
+            "admin:advertisement:queryAllAdvertisement",
+            "admin:advertisement:queryAdvertisement"
           ],
           "title": "分类图片"
         },
@@ -331,10 +338,11 @@
         "meta": {
           "noCache": true,
           "perms": [
-            "promote:advertisement:create",
-            "promote:advertisement:delete",
-            "promote:advertisement:update",
-            "promote:advertisement:query"
+            "admin:advertisement:addAdvertisement",
+            "admin:advertisement:deleteAdvertisement",
+            "admin:advertisement:updateAdvertisement",
+            "admin:advertisement:queryAllAdvertisement",
+            "admin:advertisement:queryAdvertisement"
           ],
           "title": "个人中心"
         },
@@ -346,10 +354,11 @@
         "meta": {
           "noCache": true,
           "perms": [
-            "promote:advertisement:create",
-            "promote:advertisement:delete",
-            "promote:advertisement:update",
-            "promote:advertisement:query"
+            "admin:advertisement:addAdvertisement",
+            "admin:advertisement:deleteAdvertisement",
+            "admin:advertisement:updateAdvertisement",
+            "admin:advertisement:queryAllAdvertisement",
+            "admin:advertisement:queryAdvertisement"
           ],
           "title": "特价列表"
         },
@@ -373,9 +382,11 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:activity:list",
-						"operation:activity:detail",
-						"operation:activity:ship"
+						"admin:activity:create",
+						"admin:activity:edit",
+						"admin:activity:updateStatus",
+						"admin:activity:list",
+						"admin:activity:query"
 					],
 					"title":"活动管理"
 				},
@@ -387,9 +398,14 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:coupon:list",
-						"operation:coupon:detail",
-						"operation:coupon:ship"
+						"admin:coupon:addCoupon",
+						"admin:coupon:deleteCoupon",
+						"admin:coupon:queryCouponById",
+						"admin:coupon:queryCouponByIds",
+						"admin:coupon:updateCoupon",
+						"admin:coupon:queryCouponByTitle",
+						"admin:coupon:queryUserCouponByList",
+						"admin:coupon:updateCouponStatus"
 					],
 					"title":"优惠券管理"
 				},
@@ -402,9 +418,14 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:order:list",
-						"operation:order:detail",
-						"operation:order:ship"
+            "admin:coupon:addCoupon",
+            "admin:coupon:deleteCoupon",
+            "admin:coupon:queryCouponById",
+            "admin:coupon:queryCouponByIds",
+            "admin:coupon:updateCoupon",
+            "admin:coupon:queryCouponByTitle",
+            "admin:coupon:queryUserCouponByList",
+            "admin:coupon:updateCouponStatus"
 					],
 					"title":"新建活动"
 				},
@@ -417,9 +438,14 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:order:list",
-						"operation:order:detail",
-						"operation:order:ship"
+            "admin:coupon:addCoupon",
+            "admin:coupon:deleteCoupon",
+            "admin:coupon:queryCouponById",
+            "admin:coupon:queryCouponByIds",
+            "admin:coupon:updateCoupon",
+            "admin:coupon:queryCouponByTitle",
+            "admin:coupon:queryUserCouponByList",
+            "admin:coupon:updateCouponStatus"
 					],
 					"title":"编辑活动"
 				},
