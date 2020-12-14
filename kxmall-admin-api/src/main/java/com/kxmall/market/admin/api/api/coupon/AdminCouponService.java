@@ -26,25 +26,25 @@ import java.util.List;
 @HttpOpenApi(group = "admin.coupon", description = "优惠卷")
 public interface AdminCouponService {
 
-    @HttpMethod(description = "创建", permission = "promote:coupon:addCoupon", permissionParentName = "活动中心", permissionName = "优惠管理")
+    @HttpMethod(description = "创建", permission = "admin:coupon:addCoupon", permissionParentName = "活动中心", permissionName = "优惠管理")
     public String addCoupon(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @HttpParam(name = "couponDTO", type = HttpParamType.COMMON, description = "优惠券对象") CouponDTO couponDTO ) throws ServiceException;
 
 
-    @HttpMethod(description = "删除", permission = "promote:coupon:deleteCoupon", permissionParentName = "活动中心", permissionName = "优惠管理")
+    @HttpMethod(description = "删除", permission = "admin:coupon:deleteCoupon", permissionParentName = "活动中心", permissionName = "优惠管理")
     public Boolean deleteCoupon(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "优惠卷ID") Long id) throws ServiceException;
 
 
-    @HttpMethod(description = "查询", permission = "promote:coupon:queryCouponById", permissionParentName = "活动中心", permissionName = "优惠管理")
+    @HttpMethod(description = "查询", permission = "admin:coupon:queryCouponById", permissionParentName = "活动中心", permissionName = "优惠管理")
     public CouponDTO queryCouponById(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "优惠卷ID") Long id) throws ServiceException;
 
 
-    @HttpMethod(description = "获取优惠券详情集合", permission = "promote:coupon:queryCouponByIds", permissionParentName = "活动中心", permissionName = "优惠管理")
+    @HttpMethod(description = "获取优惠券详情集合", permission = "admin:coupon:queryCouponByIds", permissionParentName = "活动中心", permissionName = "优惠管理")
     public List<CouponDTO> queryCouponByIds(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "idsJson", type = HttpParamType.COMMON, description = "商品主键数组Json字符串") String idsJson
@@ -52,13 +52,13 @@ public interface AdminCouponService {
 
 
 
-    @HttpMethod(description = "修改", permission = "promote:coupon:updateCoupon", permissionParentName = "活动中心", permissionName = "优惠管理")
+    @HttpMethod(description = "修改", permission = "admin:coupon:updateCoupon", permissionParentName = "活动中心", permissionName = "优惠管理")
     public String updateCoupon(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @HttpParam(name = "couponDTO", type = HttpParamType.COMMON, description = "优惠券对象") CouponDTO couponDTO) throws ServiceException;
 
 
-    @HttpMethod(description = "修改", permission = "promote:coupon:updateCouponStatus", permissionParentName = "活动中心", permissionName = "优惠管理")
+    @HttpMethod(description = "修改状态", permission = "admin:coupon:updateCouponStatus", permissionParentName = "活动中心", permissionName = "优惠管理")
     public Boolean updateCouponStatus(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "优惠卷ID") Long id,
@@ -66,7 +66,7 @@ public interface AdminCouponService {
 
 
 
-    @HttpMethod(description = "查询", permission = "promote:coupon:queryCouponByTitle", permissionParentName = "活动中心", permissionName = "优惠管理")
+    @HttpMethod(description = "查询", permission = "admin:coupon:queryCouponByTitle", permissionParentName = "活动中心", permissionName = "优惠管理")
     public Page<CouponDTO> queryCouponByTitle(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @HttpParam(name = "title", type = HttpParamType.COMMON, description = "优惠卷标题") String title,
@@ -77,7 +77,7 @@ public interface AdminCouponService {
 
 
 
-    @HttpMethod(description = "获取优惠用户列表", permission = "promote:coupon:queryUserCouponByList", permissionParentName = "活动中心", permissionName = "优惠管理")
+    @HttpMethod(description = "获取优惠用户列表", permission = "admin:coupon:queryUserCouponByList", permissionParentName = "活动中心", permissionName = "优惠管理")
     public Page<UserCouponDTO> queryUserCouponByList(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @HttpParam(name = "name", type = HttpParamType.COMMON, description = "用户昵称或用户手机号") String name,

@@ -21,25 +21,25 @@ import java.util.List;
 @HttpOpenApi(group = "admin.activity", description = "活动管理服务")
 public interface ActivityService {
 
-    @HttpMethod(description = "新增",permission = "admin:activity:create", permissionParentName = "活动管理", permissionName = "活动管理")
+    @HttpMethod(description = "新增",permission = "admin:activity:create", permissionParentName = "活动中心", permissionName = "活动管理")
     public String create(
             @NotNull @HttpParam(name = "activityDTO", type = HttpParamType.COMMON, description = "活动管理JSON数据") ActivityDTO activityDTO,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "编辑", permission = "admin:activity:edit", permissionParentName = "活动管理", permissionName = "活动管理")
+    @HttpMethod(description = "编辑", permission = "admin:activity:edit", permissionParentName = "活动中心", permissionName = "活动管理")
     public String edit(
             @NotNull @HttpParam(name = "activityDTO", type = HttpParamType.COMMON, description = "活动管理JSON数据") ActivityDTO activityDTO,
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "查询", permission = "admin:activity:query", permissionParentName = "活动管理", permissionName = "优惠管理")
+    @HttpMethod(description = "查询", permission = "admin:activity:query", permissionParentName = "活动中心", permissionName = "活动管理")
     public ActivityDTO queryActivityById(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "活动ID") Long id) throws ServiceException;
 
 
-    @HttpMethod(description = "列表", permission = "operation:activity:list", permissionParentName = "活动管理", permissionName = "活动管理")
+    @HttpMethod(description = "列表", permission = "admin:activity:list", permissionParentName = "活动中心", permissionName = "活动管理")
     public Page<ActivityDTO> list(
             @HttpParam(name = "page", type = HttpParamType.COMMON, description = "页码", valueDef = "1") Integer page,
             @HttpParam(name = "limit", type = HttpParamType.COMMON, description = "页码长度", valueDef = "20") Integer limit,
@@ -51,7 +51,7 @@ public interface ActivityService {
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员Id") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "更新状态", permission = "operation:activity:updateStatus", permissionParentName = "活动管理", permissionName = "活动管理")
+    @HttpMethod(description = "更新状态", permission = "admin:activity:updateStatus", permissionParentName = "活动中心", permissionName = "活动管理")
     public String updateStatus(
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "活动id")Long  id,
             @NotNull @HttpParam(name = "status", type = HttpParamType.COMMON, description = "活动状态") Integer status,
