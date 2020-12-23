@@ -6,6 +6,7 @@
 /kxmall-data/target
 /kxmall-admin/target
 /*.log
+/*.gz
 /kxmall-admin-api/*.iml
 /kxmall-app-api/*.iml
 /kxmall-service-message/target

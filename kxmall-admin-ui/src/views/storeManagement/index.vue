@@ -38,7 +38,7 @@
       placeholder="请选择省市区"
       clearable
     ></el-cascader>
-    <el-button type="primary" icon="el-icon-search" @click="doSearch">查找</el-button>
+    <el-button v-permission="['admin:user:update']" type="primary" icon="el-icon-search" @click="doSearch">查找</el-button>
     <el-button type="primary" @click="toAdd">新增</el-button>
     <el-table
       :data="tableData"

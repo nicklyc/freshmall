@@ -20,7 +20,7 @@ import java.util.List;
 @HttpOpenApi(group = "admin.storage", description = "仓库服务")
 public interface StorageService {
 
-    @HttpMethod(description = "列表", permission = "admin.storage:list", permissionParentName = "仓库管理", permissionName = "前置仓管理")
+    @HttpMethod(description = "列表", permission = "admin:storage:list", permissionParentName = "前置仓管理", permissionName = "前置仓资料")
     public Page<StorageDO> list(
             @HttpParam(name = "state", type = HttpParamType.COMMON, description = "仓库状态[0:禁用，1：正常]") Integer state,
             @HttpParam(name = "operatingState", type = HttpParamType.COMMON, description = "营业状态[0:休息，1:营业]") Integer operatingState,
@@ -32,42 +32,38 @@ public interface StorageService {
             @HttpParam(name = "limit", type = HttpParamType.COMMON, description = "页码长度", valueDef = "20") Integer limit,
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "添加", permission = "admin.storage:create", permissionParentName = "仓库管理", permissionName = "前置仓管理")
+    @HttpMethod(description = "添加", permission = "admin:storage:create", permissionParentName = "前置仓管理", permissionName = "前置仓资料")
     public StorageDO create(
             @NotNull @HttpParam(name = "storage", type = HttpParamType.COMMON, description = "前置仓对象") StorageDO storageDO,
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-//    @HttpMethod(description = "删除", permission = "admin.storage:delete", permissionParentName = "仓库管理", permissionName = "前置仓管理")
-//    public String delete(
-//            @NotNull @HttpParam(name = "storageId", type = HttpParamType.COMMON, description = "前置仓Id") Long storageId,
-//            @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "更新", permission = "admin.storage:update", permissionParentName = "仓库管理", permissionName = "前置仓管理")
+    @HttpMethod(description = "更新", permission = "admin:storage:update", permissionParentName = "前置仓管理", permissionName = "前置仓资料")
     public StorageDO update(
             @NotNull @HttpParam(name = "storage", type = HttpParamType.COMMON, description = "前置仓对象") StorageDO storageDO,
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "详情", permission = "admin.storage:selectById", permissionParentName = "仓库管理", permissionName = "前置仓管理")
+    @HttpMethod(description = "详情", permission = "admin:storage:selectById", permissionParentName = "前置仓管理", permissionName = "前置仓资料")
     public StorageDO selectById(
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "前置仓id") Long id,
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "前置仓状态批量更新为正常", permission = "admin.storage:batchToNomral", permissionParentName = "仓库管理", permissionName = "前置仓管理")
+    @HttpMethod(description = "前置仓状态批量更新为正常", permission = "admin:storage:updateStateToNomral", permissionParentName = "前置仓管理", permissionName = "前置仓资料")
     public String updateStateToNomral(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "ids", type = HttpParamType.COMMON, description = "仓库主键数组Json字符串") String idsJson) throws ServiceException;
 
-    @HttpMethod(description = "前置仓状态批量更新为禁用", permission = "admin.storage:batchToAbort", permissionParentName = "仓库管理", permissionName = "前置仓管理")
+    @HttpMethod(description = "前置仓状态批量更新为禁用", permission = "admin:storage:updateStateToAbort", permissionParentName = "前置仓管理", permissionName = "前置仓资料")
     public String updateStateToAbort(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "ids", type = HttpParamType.COMMON, description = "仓库主键数组Json字符串") String idsJson) throws ServiceException;
 
-    @HttpMethod(description = "前置仓营业状态批量更新为营业中", permission = "admin.storage:batchToOpen", permissionParentName = "仓库管理", permissionName = "前置仓管理")
+    @HttpMethod(description = "前置仓营业状态批量更新为营业中", permission = "admin:storage:updateBusinessStateToOpen", permissionParentName = "前置仓管理", permissionName = "前置仓资料")
     public String updateBusinessStateToOpen(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "ids", type = HttpParamType.COMMON, description = "仓库主键数组Json字符串") String idsJson) throws ServiceException;
 
-    @HttpMethod(description = "前置仓营业状态批量更新为休息中", permission = "admin.storage:batchToRest", permissionParentName = "仓库管理", permissionName = "前置仓管理")
+    @HttpMethod(description = "前置仓营业状态批量更新为休息中", permission = "admin:storage:updateBusinessStateToRest", permissionParentName = "前置仓管理", permissionName = "前置仓资料")
     public String updateBusinessStateToRest(
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId,
             @NotNull @HttpParam(name = "ids", type = HttpParamType.COMMON, description = "仓库主键数组Json字符串") String idsJson) throws ServiceException;

@@ -20,7 +20,7 @@ import com.kxmall.market.data.model.Page;
 @HttpOpenApi(group = "admin.stock", description = "库存服务")
 public interface StockService {
 
-    @HttpMethod(description = "列表", permission = "admin.stock:list", permissionParentName = "库存管理", permissionName = "前置仓商品管理")
+    @HttpMethod(description = "列表", permission = "admin:stock:list", permissionParentName = "前置仓管理", permissionName = "前置仓商品管理")
     Page<StockDTO> list(
             @HttpParam(name = "storageId", type = HttpParamType.COMMON, description = "前置仓id") Long storageId,
             @HttpParam(name = "categoryId", type = HttpParamType.COMMON, description = "搜索分类") Long categoryId,
@@ -32,20 +32,20 @@ public interface StockService {
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "上下架", permission = "operation:stock:edit", permissionParentName = "库存管理", permissionName = "前置仓商品管理")
+    @HttpMethod(description = "上下架", permission = "admin:stock:freezeOrActivation", permissionParentName = "前置仓管理", permissionName = "前置仓商品管理")
     StockDO freezeOrActivation(
             @NotNull @HttpParam(name = "stockId", type = HttpParamType.COMMON, description = "库存Id") Long stockId,
             @NotNull @HttpParam(name = "status", type = HttpParamType.COMMON, description = "库存商品想要变为的状态") Integer status,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员Id") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "删除", permission = "admin.storage:delete", permissionParentName = "库存管理", permissionName = "前置仓商品管理")
+    @HttpMethod(description = "删除", permission = "admin:stock:delete", permissionParentName = "前置仓管理", permissionName = "前置仓商品管理")
     String delete(
             @NotNull @HttpParam(name = "stockId", type = HttpParamType.COMMON, description = "库存Id") Long stockId,
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "新增", permission = "admin.storage:create", permissionParentName = "库存管理", permissionName = "前置仓商品管理")
+    @HttpMethod(description = "新增", permission = "admin:stock:create", permissionParentName = "前置仓管理", permissionName = "前置仓商品管理")
     StockDO create(
             @NotNull @HttpParam(name = "spuId", type = HttpParamType.COMMON, description = "商品id") Long spuId,
             @NotNull @HttpParam(name = "skuId", type = HttpParamType.COMMON, description = "商品规格id") Long skuId,
@@ -57,7 +57,7 @@ public interface StockService {
             @NotNull @HttpParam(name = "price", type = HttpParamType.COMMON, description = "当前售价", valueDef = "20") Integer price,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "更新当前价格", permission = "admin.storage:updatePrice", permissionParentName = "库存管理", permissionName = "前置仓商品管理")
+    @HttpMethod(description = "更新当前价格", permission = "admin:stock:updatePrice", permissionParentName = "前置仓管理", permissionName = "前置仓商品管理")
     Integer updatePrice(
             @NotNull @HttpParam(name = "stockId", type = HttpParamType.COMMON, description = "库存Id") Long stockId,
             @NotNull @HttpParam(name = "price", type = HttpParamType.COMMON, description = "当前价格") Integer price,
@@ -65,7 +65,7 @@ public interface StockService {
 
 
 
-    @HttpMethod(description = "库存预警列表", permission = "admin.stock:list", permissionParentName = "库存管理", permissionName = "库存预警管理")
+    @HttpMethod(description = "库存预警列表", permission = "admin:stock:warningList", permissionParentName = "前置仓管理", permissionName = "库存预警管理")
     Page<SpuDTO> warningList(
             @HttpParam(name = "storageId", type = HttpParamType.COMMON, description = "前置仓id") Long storageId,
             @HttpParam(name = "page", type = HttpParamType.COMMON, description = "页码", valueDef = "1") Integer page,
@@ -79,7 +79,7 @@ public interface StockService {
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "设置预警量", permission = "admin.stock:updateNum", permissionParentName = "库存管理", permissionName = "库存预警管理")
+    @HttpMethod(description = "设置预警量", permission = "admin:stock:warningUpdate", permissionParentName = "前置仓管理", permissionName = "库存预警管理")
     Integer warningUpdate(
             @NotNull @HttpParam(name = "storageId", type = HttpParamType.COMMON, description = "前置仓id") Long storageId,
             @NotNull @HttpParam(name = "spuId", type = HttpParamType.COMMON, description = "商品id") Long spuId,

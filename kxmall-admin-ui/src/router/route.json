@@ -4,21 +4,6 @@
 		"path":"/mall",
 		"children":[
 			{
-				"path": "user",
-				"meta": {
-					"noCache": true,
-					"perms": [
-						"system:user:query",
-						"system:user:delete",
-						"system:user:create",
-						"system:user:update"
-					],
-					"title": "会员管理"
-				},
-				"name": "user",
-				"page": "/user/user"
-			},
-			{
 				"path":"order",
 				"meta":{
 					"noCache":true,
@@ -76,9 +61,15 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:data:list",
-						"operation:data:detail",
-						"operation:data:ship"
+						"admin:storage:update",
+            "admin:storage:list",
+            "admin:storage:delete",
+            "admin:storage:create",
+            "admin:storage:selectById",
+            "admin:storage:updateBusinessStateToOpen",
+            "admin:storage:updateStateToAbort",
+            "admin:storage:updateStateToNomral",
+            "admin:storage:updateBusinessStateToRest"
 					],
 					"title":"前置仓资料"
 				},
@@ -90,9 +81,11 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:data:list",
-						"operation:data:detail",
-						"operation:data:ship"
+						"admin:stock:delete",
+						"admin:stock:list",
+						"admin:stock:create",
+						"admin:stock:freezeOrActivation",
+						"admin:stock:updatePrice"
 					],
 					"title":"前置仓商品管理"
 				},
@@ -104,9 +97,8 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:data:list",
-						"operation:data:detail",
-						"operation:data:ship"
+						"admin:stock:warningList",
+						"admin:stock:warningUpdate"
 					],
 					"title":"库存监控"
 				},
@@ -118,9 +110,15 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:data:list",
-						"operation:data:detail",
-						"operation:data:ship"
+						"admin:enterStock:update",
+						"admin:enterStock:delete",
+						"admin:enterStock:list",
+						"admin:enterStock:create",
+						"admin:enterStock:update",
+						"admin:enterStock:selectById",
+						"admin:enterStock:UpdateEnterStockStatus",
+						"admin:enterStock:deleteBatch",
+						"admin:enterStock:getGoodsDetail"
 					],
 					"title":"商品入库"
 				},
@@ -132,9 +130,13 @@
         "meta":{
           "noCache":true,
           "perms":[
-            "operation:data:list",
-            "operation:data:detail",
-            "operation:data:ship"
+            "admin:goodsOutStock:update",
+            "admin:goodsOutStock:delete",
+            "admin:goodsOutStock:list",
+            "admin:goodsOutStock:create",
+            "admin:goodsOutStock:selectById",
+            "admin:goodsOutStock:updateOutOfStock",
+            "admin:goodsOutStock:storagAllName"
           ],
           "title":"商品出库"
         },

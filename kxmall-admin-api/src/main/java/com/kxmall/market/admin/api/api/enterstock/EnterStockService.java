@@ -22,7 +22,7 @@ import java.util.Map;
 @HttpOpenApi(group = "admin.enterStock", description = "入库服务")
 public interface EnterStockService {
 
-    @HttpMethod(description = "列表", permission = "admin.enterStock:list", permissionParentName = "商品入库管理", permissionName = "商品入库列表")
+    @HttpMethod(description = "列表", permission = "admin:enterStock:list", permissionParentName = "前置仓管理", permissionName = "商品入库")
     Page<EnterStockDTO> list(
             @HttpParam(name = "storageId", type = HttpParamType.COMMON, description = "仓库ID") Long storageId,
             @HttpParam(name = "enterStockStatus", type = HttpParamType.COMMON, description = "入库状态[0:待入库，1:已入库]") Integer enterStockStatus,
@@ -32,39 +32,39 @@ public interface EnterStockService {
             @HttpParam(name = "limit", type = HttpParamType.COMMON, description = "页码长度", valueDef = "20") Integer limit,
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "添加", permission = "admin.enterStock:create", permissionParentName = "商品入库管理", permissionName = "商品入库添加")
+    @HttpMethod(description = "添加", permission = "admin:enterStock:create", permissionParentName = "前置仓管理", permissionName = "商品入库")
     String create(
             @NotNull @HttpParam(name = "enterStock", type = HttpParamType.COMMON, description = "入库对象") String enterStockDOs,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "修改入库状态", permission = "admin.enterStock:updateEnterStockStatus", permissionParentName = "商品入库管理", permissionName = "修改入库状态")
+    @HttpMethod(description = "修改入库状态", permission = "admin:enterStock:updateEnterStockStatus", permissionParentName = "前置仓管理", permissionName = "商品入库")
     EnterStockDO UpdateEnterStockStatus(
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "入库id") Long id,
             @NotNull @HttpParam(name = "enterStockStatus", type = HttpParamType.COMMON, description = "入库状态[0:待入库，1:已入库]") Integer enterStockStatus,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
 
-    @HttpMethod(description = "删除", permission = "admin.enterStock:delete", permissionParentName = "商品入库管理", permissionName = "商品入库删除")
+    @HttpMethod(description = "删除", permission = "admin:enterStock:delete", permissionParentName = "前置仓管理", permissionName = "商品入库")
     String delete(
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "入库id") Long id,
             @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "更新", permission = "admin.enterStock:update", permissionParentName = "商品入库管理", permissionName = "商品入库更新")
+    @HttpMethod(description = "更新", permission = "admin:enterStock:update", permissionParentName = "前置仓管理", permissionName = "商品入库")
     EnterStockDO update(
             @NotNull @HttpParam(name = "enterStock", type = HttpParamType.COMMON, description = "入库对象") EnterStockDO storageDO,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "详情", permission = "admin.enterStock:selectById", permissionParentName = "商品入库管理", permissionName = "商品入库详情")
+    @HttpMethod(description = "详情", permission = "admin:enterStock:selectById", permissionParentName = "前置仓管理", permissionName = "商品入库")
     EnterStockDO selectById(
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "入库id") Long id,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "批量删除", permission = "admin.enterStock:deleteBatch", permissionParentName = "商品入库管理", permissionName = "商品入库批量删除")
+    @HttpMethod(description = "批量删除", permission = "admin:enterStock:deleteBatch", permissionParentName = "前置仓管理", permissionName = "商品入库")
     String deleteBatch(
             @NotNull @HttpParam(name = "ids", type = HttpParamType.COMMON, description = "入库id数组") Long[] ids,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
 
-    @HttpMethod(description = "查询入库详情", permission = "admin.enterStock:getGoodsDetail", permissionParentName = "商品入库管理", permissionName = "查询入库详情")
+    @HttpMethod(description = "查询入库详情", permission = "admin:enterStock:getGoodsDetail", permissionParentName = "前置仓管理", permissionName = "商品入库")
     Map<String, Object> getGoodsDetail(
             @NotNull @HttpParam(name = "id", type = HttpParamType.COMMON, description = "入库id") Long id,
             @NotNull @HttpParam(name = "adminId", type = HttpParamType.ADMIN_ID, description = "管理员ID") Long adminId) throws ServiceException;
