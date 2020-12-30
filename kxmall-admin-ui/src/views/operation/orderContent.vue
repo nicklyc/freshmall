@@ -20,23 +20,6 @@
       clearable
       placeholder="输入订单号"
       style="width:250px"></el-input>
-    <!-- <el-time-select
-      v-model="startTime"
-      :picker-options="{
-        start: '00:00',
-        step: '00:30',
-        end: '23:00',
-      }"
-      placeholder="起始时间" />
-    <el-time-select
-      v-model="endTime"
-      :picker-options="{
-        start: '00:00',
-        step: '00:30',
-        end: '23:00',
-        minTime: startTime
-      }"
-      placeholder="结束时间" /> -->
     <el-date-picker
       v-model="time"
       type="datetimerange"
@@ -62,12 +45,12 @@
         align="center"
         label="订单号" />
       <el-table-column
-        v-if="status===32"
+        v-if="status==='32'"
         prop="exceptionReason"
         align="center"
         label="异常原因" />
       <el-table-column
-        v-if="status===80"
+        v-if="status==='80'"
         prop="exceptionReason"
         align="center"
         label="付款状态" />
@@ -87,11 +70,11 @@
         align="center"
         label="配送状态" />
       <el-table-column
-        v-if="status!==14&&status!==16&&status!==10"
+        v-if="status!=='14'&&status!=='16'&&status!=='10'"
         align="center"
         label="配送员">
         <template slot-scope="scope">
-          <span>{{ scope.row.postId | formatPostman }}</span>
+          <span>{{ scope.row.postId }}</span>
         </template>
       </el-table-column>
       <el-table-column
@@ -392,7 +375,7 @@
 <script>
 import axios from 'axios'
 import { getEntrepotList } from '@/api/entrepot'
-import { listByStatus, detailOrder, updateOrderStatus, distributeOrder, getRiderByStorageId, getOptions } from '@/api/order'
+import { listByStatus, detailOrder, updateOrderStatus, distributeOrder } from '@/api/order'
 // import Pagination from '@/components/Pagination' // Secondary package based on el-pagination listOrder, shipOrder, refundOrder, detailOrder, getExcelInfo,
 // import checkPermission from '@/utils/permission' // 权限判断函数
 
@@ -421,25 +404,12 @@ export default {
         OFFLINE: '线下支付'
       }
       return statusMap[status]
-    },
-    formatPostman(status) {
-      if (!status) {
-        return ''
-      }
-      const statusMap = JSON.parse(sessionStorage.getItem('postmanList')).data
-      let msg = ''
-      statusMap.forEach(val => {
-        if (val.id === status) {
-          msg = val.name
-        }
-      })
-      return msg
     }
   },
   props: {
     status: {
-      type: Number,
-      default: 14
+      type: String,
+      default: '14'
     }
   },
   data() {
@@ -472,13 +442,6 @@ export default {
     }
   },
   async created() {
-    getOptions().then(res => {
-      console.log(res)
-      sessionStorage.setItem('postmanList', JSON.stringify(res.data))
-    }).catch(res => {
-      console.log(res)
-      sessionStorage.setItem('postmanList', res.data)
-    })
     getEntrepotList().then(res => {
       res.data.data.items.forEach(item => {
         this.entrepotOptions.push({
@@ -588,12 +551,6 @@ export default {
       this.orderId = id
       this.allotShow = true
       this.allotValue = val
-      getRiderByStorageId({
-        storageId: 11
-      }).then(res => {
-        console.log(res)
-        this.courierList = res.data.data
-      })
     },
     check(val) {
       const loadingInstance = this.$loading({ text: '正在分配中...' })

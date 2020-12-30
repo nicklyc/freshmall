@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import request2 from '@/utils/request2'
 
 export function listOrder(query) {
   return request({
@@ -98,24 +97,4 @@ export function doExport(data) {
     }
   })
 }
-export function getRiderByStorageId(data) {
-  return request2({
-    method: 'get',
-    params: {
-      _gp: 'admin.rider',
-      _mt: 'getRiderByStorageId',
-      ...data
-    }
-  })
-}
 
-export function getOptions(data) {
-  return request2({
-    method: 'get',
-    params: {
-      _gp: 'admin.rider',
-      _mt: 'options',
-      ...data
-    }
-  })
-}
