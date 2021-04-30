@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kxmall.iml" filepath="$PROJECT_DIR$/kxmall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kxmall-admin/kxmall-admin.iml" filepath="$PROJECT_DIR$/kxmall-admin/kxmall-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kxmall-admin-api/kxmall-admin-api.iml" filepath="$PROJECT_DIR$/kxmall-admin-api/kxmall-admin-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kxmall-app-api/kxmall-app-api.iml" filepath="$PROJECT_DIR$/kxmall-app-api/kxmall-app-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kxmall-biz/kxmall-biz.iml" filepath="$PROJECT_DIR$/kxmall-biz/kxmall-biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kxmall-core/kxmall-core.iml" filepath="$PROJECT_DIR$/kxmall-core/kxmall-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kxmall-data/kxmall-data.iml" filepath="$PROJECT_DIR$/kxmall-data/kxmall-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kxmall-plugin-core/kxmall-plugin-core.iml" filepath="$PROJECT_DIR$/kxmall-plugin-core/kxmall-plugin-core.iml" />
+    </modules>
+  </component>
+</project>

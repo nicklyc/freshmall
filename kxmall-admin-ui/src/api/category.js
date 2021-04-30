@@ -64,3 +64,15 @@ export function deleteCategory(id) {
     }
   })
 }
+
+export function changeStatus(status, id) {
+  return request({
+    method: 'post',
+    params: {
+      _gp: 'admin.category',
+      _mt: 'changeStatus',
+      status: status,
+      id: id
+    }
+  })
+}

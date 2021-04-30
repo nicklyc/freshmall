@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kxmall-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kxmall-admin-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kxmall-app-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kxmall-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kxmall-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kxmall-data" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kxmall-plugin-core" charset="UTF-8" />
+  </component>
+</project>

@@ -163,6 +163,7 @@
 					})
 					return
 				}
+				
 				that.$api.request('user', 'sendVerifyCode', {
 					phone: that.phone,
 				}).then(res => {
@@ -191,7 +192,7 @@
 					that.logining = true;
 					//#ifdef MP-WEIXIN
 					//若是小程序平台，则获取到openId。整个过程是静默完成的
-					uni.login({
+		/* 			uni.login({
 						provider: 'weixin',
 						success: (wxres => {
 							that.$api.request('user', 'login', {
@@ -215,7 +216,7 @@
 								uni.navigateBack()
 							})
 						})
-					})
+					}) */N
 					//#endif
 					//#ifdef APP-PLUS || H5
 					//若是App登录，则不需要保存OpenId。可直接登录
@@ -324,6 +325,7 @@
 					uni.navigateBack()
 				})
 			},
+			//获取到手机号
 			fakeLogin(){
 				uni.showLoading({
 					
@@ -360,17 +362,19 @@
 					}
 				}, 800);
 			},
+			
 			//授权手机号登录
 			miniWechatLogin(e) {
+				//显示 loading 提示框
 				uni.showLoading({
-					
+					 title: '加载中'
 				})
 				if(!this.sessionKey || !this.puserInfo.openId){
 					console.log('第三方登录异常')
 					console.log('sessionKEY：'+this.sessionKey)
 					console.log('openid:'+this.puserInfo.openId)
-					this.$api.msg('登录异常，请重新点击授权登录')
-					return
+					//this.$api.msg('登录异常，请重新点击授权登录')
+					//return
 					uni.showLoading({})
 					uni.login({
 						provider: 'weixin',

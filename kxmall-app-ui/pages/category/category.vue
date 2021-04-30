@@ -228,6 +228,7 @@
 		},
 		onLoad(){
 			// console.log(this.$store.state.storageId)
+			//TODO 分类菜单，仅仅加载一次 这里有个bug，需要调整为每次点击分类都应该加载一次
 			this.loadData();
 			this.$api.request('advertisement','getActiveAd',{
 				adType:7
@@ -236,6 +237,12 @@
 			})
 		},
 		onShow() {
+			this.loadData();
+			this.$api.request('advertisement','getActiveAd',{
+				adType:7
+			}).then(res=>{
+				this.banner = res.data[0]
+			})
 			this.$store.state.storageId ? this.storage = true : this.storage = false
 			//如果用户已登录，获取购物车数量
 			if(this.$store.state.userInfo.accessToken){

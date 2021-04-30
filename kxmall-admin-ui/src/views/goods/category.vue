@@ -51,8 +51,6 @@
       fit
       highlight-current-row
     >
-      <el-table-column align="center" label="类目ID" prop="value" />
-
       <el-table-column align="center" label="类目名" prop="label">
         <template slot-scope="scope">
           <el-tag>{{ scope.row.label }}</el-tag>
@@ -64,14 +62,22 @@
           <el-tag>{{ scope.row.fullName }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="父类目ID" prop="parent" />
-
       <el-table-column align="center" label="级别" prop="level" >
         <template slot-scope="scope">
           <el-tag>{{ scope.row.level | categoryLevelFilter }}</el-tag>
         </template>
       </el-table-column>
-
+      <el-table-column align="center" label="级别" prop="level" >
+        <template slot-scope="scope">
+          <!-- <el-tag :type="scope.row.status==1 ? 'success' : 'info' ">{{ scope.row.status==0 ? "下架":"上架" }}</el-tag>
+          -->
+          <el-button
+            :type="scope.row.status==1 ? 'success' : 'info' "
+            size="mini">
+            {{ scope.row.status==1 ? "上架":"下架" }}
+          </el-button>
+        </template>
+      </el-table-column>
       <el-table-column align="center" label="标志图片" prop="iconUrl">
         <template slot-scope="scope">
           <img v-if="scope.row.iconUrl" :src="scope.row.iconUrl" width="80" >
@@ -83,7 +89,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="操作" width="200" class-name="small-padding fixed-width">
+      <el-table-column align="center" label="操作" width="300" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
             v-permission="['operation:category:updateCategory']"
@@ -97,8 +103,18 @@
             size="mini"
             @click="handleDelete(scope.row)"
           >删除</el-button>
+          <el-button
+            v-permission="['operation:category:deleteCategory']"
+            :type="scope.row.status==0 ? 'success' : 'info' "
+            size="mini"
+            @click="changeStatus(scope.row)"
+          >
+            {{ scope.row.status==0 ? "上架":"下架" }}
+          </el-button>
         </template>
       </el-table-column>
+      <el-table-column align="center" label="类目ID" prop="value" />
+      <el-table-column align="center" label="父类目ID" prop="parent" />
     </el-table>
 
     <pagination
@@ -211,7 +227,7 @@
 </style>
 
 <script>
-import { listCategory, createCategory, updateCategory, deleteCategory } from '@/api/category'
+import { listCategory, createCategory, updateCategory, deleteCategory, changeStatus } from '@/api/category'
 import { uploadPath } from '@/api/storage'
 import { getToken } from '@/utils/auth'
 import { clearTreeEmptyChildren } from '@/utils/index'
@@ -422,6 +438,32 @@ export default {
             const index = this.list.indexOf(row)
             this.list.splice(index, 1)
             this.refreshOptions()
+          })
+          .catch(response => {
+            this.$notify.error({
+              title: '失败',
+              message: response.data.errmsg
+            })
+          })
+      }).catch(() => {
+        return false
+      })
+    },
+    // 上下架操作
+    changeStatus(row) {
+      this.$confirm('此操作将对--' + row.label + '--状态进行变更, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        const status = row.status === 0 ? 1 : 0 // 改变装状态
+        changeStatus(status, row.value)
+          .then(response => {
+            this.$notify.success({
+              title: '成功',
+              message: '变更成功'
+            })
+            this.getList()
           })
           .catch(response => {
             this.$notify.error({

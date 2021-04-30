@@ -28,16 +28,19 @@
       <el-table-column
         type="selection"
         align="center"
-        width="55"/>
-      <el-table-column
-        prop="id"
-        align="center"
-        width="120"
-        label="活动券ID"/>
+        width="50"/>
       <el-table-column
         prop="title"
         align="center"
         label="活动券名称"/>
+      <el-table-column
+        prop="discount"
+        align="center"
+        label="满减金额"/>
+      <el-table-column
+        prop="min"
+        align="center"
+        label="最低消费"/>
       <el-table-column
         prop="type"
         align="center"

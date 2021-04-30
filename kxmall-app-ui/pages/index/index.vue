@@ -372,6 +372,7 @@
 				uni.showLoading({
 					title: "加载中..."
 				})
+				//加载中
 				that.$api.request('integral', 'getIndexDataByStorage', {
 					storageId: id
 				}, failres => {
