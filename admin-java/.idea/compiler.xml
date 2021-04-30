@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kxmall-admin" />
+        <module name="kxmall-admin-api" />
+        <module name="kxmall-app-api" />
+        <module name="kxmall-biz" />
+        <module name="kxmall-core" />
+        <module name="kxmall-data" />
+        <module name="kxmall-plugin-core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="kxmall" target="1.8" />
+      <module name="kxmall-admin" target="1.8" />
+      <module name="kxmall-admin-api" target="1.8" />
+      <module name="kxmall-app-api" target="1.8" />
+      <module name="kxmall-biz" target="1.8" />
+      <module name="kxmall-core" target="1.8" />
+      <module name="kxmall-data" target="1.8" />
+      <module name="kxmall-plugin-core" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
