@@ -67,7 +67,7 @@
 		"name":"mallManage",
 		"alwaysShow":true
 	},
-	{
+	/*{
 		"redirect":"noredirect",
 		"path":"/entrepot",
 		"children":[
@@ -190,7 +190,7 @@
 		},
 		"name":"mallManage",
 		"alwaysShow":true
-	},
+	},*/
 	{
 		"redirect":"noredirect",
     "path":"/dispatch",
